@@ -36,7 +36,7 @@ from binance import BinanceSocketManager
 # RSI BTC
 # MACD
 
-# Strategy Tren Following
+# Strategy Trend Following
 # def strategy(entry, lookback, open_position=False):
 #     while True:
 #         df = pd.read.sql('BTCUSDT', engine)
@@ -62,3 +62,27 @@ from binance import BinanceSocketManager
 #                         symbol='BTCUSDT', side='SELL', type='MARKET', quantity=qty)
 #                     print(order)
 #                     break
+# Strategy Trailling Stop Los
+# def strategy(entry, loockback, qty, open_position=False):
+#     while True:
+#         df = pd.read_sql(pair,engine)
+#         lookbackperiod = df.iloc[-lookback:]
+#         cumret = (lookbackperiod.Price.pct_change() +1).cumprod() - 1
+#         if cumret[cumret.last_valid_index() < entry]:
+#             order = client.create.order(symbol=pair,side='BUY',
+#                                         type='MARKET',quantity=qty)
+#             print(order)
+#             open_position = True
+#         #STOP LOSS PART
+#     if open_position:
+#         while True:
+#             df = pd.read_sql(f"""SELECT * FROM {pair} WHERE \
+#             Time >= '{pd.to_datetime(order['transactTime'], unit='ms')}'""", engine)
+#             df['Benchmark'] = df.Price.cummax()
+#             df['TSL'] = df.Benchmark * 0.995
+#             if df[df.Price < df.TSL].first_valid_index():
+#                 order = client.create.order(symbol=pair,side='SELL',
+#                                         type='MARKET',quantity=qty)
+
+#                 print(order)
+#                 break
