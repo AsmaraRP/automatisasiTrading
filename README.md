@@ -1,4 +1,4 @@
-# automatisasiTrading 
+# Automatically Trading Based on Python and Binance Exchanger
 Strategy that use for geting transaction automatically with python based on indicator implementation.
 
 # Getting Started
